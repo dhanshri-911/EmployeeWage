@@ -12,43 +12,44 @@ public class EmployeeWage {
 	static final int WORKING_HOURS_PER_MONTH = 100;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int workingDays = 0;
 		int totalWorkingHours = 0;
 		int totalWage = 0;
+		while (workingDays < WORKIG_DAY_PER_MONTH && totalWorkingHours < WORKING_HOURS_PER_MONTH) {
+			int empPresent = (int) (Math.floor(Math.random() * 10) % 3); // number b/w 0 and 1
+			int empWage = 0;
 
-		int empPresent = (int) (Math.floor(Math.random() * 10) % 3); // number b/w 0 and 1
-		int empWage = 0;
-
-		if (empPresent == Is_PART_TIME) {
-			System.out.println("Part time");
-		} else if (empPresent == Is_FULL_TIME) {
-			System.out.println("Full time");
-		} else if (empPresent == 0) {
-			System.out.println("Absent");
-		}
-
-		switch (empPresent) {
-		case Is_PART_TIME:
-
-			if (totalWorkingHours + PART_TIME_HOUR <= WORKING_HOURS_PER_MONTH) {
-				empWage = WAGE_PER_HOUR * PART_TIME_HOUR;
-				totalWorkingHours = totalWorkingHours + PART_TIME_HOUR;
+			if (empPresent == Is_PART_TIME) {
+				System.out.println("Part time");
+			} else if (empPresent == Is_FULL_TIME) {
+				System.out.println("Full time");
+			} else if (empPresent == 0) {
+				System.out.println("Absent");
 			}
-			break;
-		case Is_FULL_TIME:
 
-			if (totalWorkingHours + FULL_DAY_HOUR <= WORKING_HOURS_PER_MONTH) {
-				empWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
-				totalWorkingHours = totalWorkingHours + FULL_DAY_HOUR;
+			switch (empPresent) {
+			case Is_PART_TIME:
+
+				if (totalWorkingHours + PART_TIME_HOUR <= WORKING_HOURS_PER_MONTH) {
+					empWage = WAGE_PER_HOUR * PART_TIME_HOUR;
+					totalWorkingHours = totalWorkingHours + PART_TIME_HOUR;
+				}
+				break;
+			case Is_FULL_TIME:
+
+				if (totalWorkingHours + FULL_DAY_HOUR <= WORKING_HOURS_PER_MONTH) {
+					empWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+					totalWorkingHours = totalWorkingHours + FULL_DAY_HOUR;
+				}
+				break;
+			default:
+				empWage = 0;
+
 			}
-			break;
-		default:
-			empWage = 0;
 
+			totalWage = totalWage + empWage;
+
+			
 		}
-
-		System.out.print("Emp wage :" + empWage);
 	}
-
 }
