@@ -48,8 +48,12 @@ public class EmployeeWage {
 			}
 
 			totalWage = totalWage + empWage;
-
-			
+			System.out.println("Total Wage for Day " + (workingDays + 1) + " = " + totalWage);
+			workingDays++;
 		}
+		System.out.println("Total Working Days :" + workingDays);
+		System.out.println("Total Working Hours :" + totalWorkingHours);
+		System.out.println("Employee Wage :" + totalWage);
+
 	}
 }
